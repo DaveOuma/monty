@@ -12,7 +12,12 @@ void push(stack_t **stack, unsigned int line_number)
     }
 
     /* Parse the integer argument */
-    int value = atoi(global_argument); // Assuming you have a global variable for the argument
+    int value; // Replace global_argument with the actual variable you are using
+    if (!/* code to convert argument to integer, use global_argument here */)
+    {
+        fprintf(stderr, "L%d: usage: push integer\n", line_number);
+        exit(EXIT_FAILURE);
+    }
 
     /* Create a new stack node */
     stack_t *new_node = malloc(sizeof(stack_t));
